@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🏥 AI Smart Healthcare Luxury Dashboard</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- jsPDF & html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>AI Smart Healthcare Dashboard</h1>
+        <p>Multi-Disease Prediction & Clinical Decision Support</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- Patient Input Card -->
+    <div class="card input-card">
+        <h2>🧍 Patient Health Inputs</h2>
+        <input id="patientName" placeholder="Patient Name">
+        <div class="input-grid">
+            <input id="pregnancies" placeholder="Pregnancies">
+            <input id="glucose" placeholder="Glucose">
+            <input id="bloodPressure" placeholder="Blood Pressure">
+            <input id="skinThickness" placeholder="Skin Thickness">
+            <input id="insulin" placeholder="Insulin">
+            <input id="bmi" placeholder="BMI">
+            <input id="dpf" placeholder="DPF">
+            <input id="age" placeholder="Age">
+        </div>
+        <div class="buttons">
+            <button onclick="predict()">🧠 Predict</button>
+            <button onclick="downloadReport()">📥 Download PDF Report</button>
+        </div>
+    </div>
+
+    <!-- Clinical Assessment Card -->
+    <div class="card assessment-card">
+        <h2>📋 Clinical Assessment</h2>
+        <pre id="risk"></pre>
+        <pre id="doctorAdvice"></pre>
+        <pre id="precautions"></pre>
+        <pre id="tests"></pre>
+    </div>
+
+    <!-- Risk Bar Chart Card -->
+    <div class="card chart-card">
+        <h2>📊 Risk Visualization</h2>
+        <canvas id="riskChart"></canvas>
+    </div>
+
+    <!-- Confidence Meters Card -->
+    <div class="card meters-card">
+        <h2>💓 Risk Confidence Meters</h2>
+        <div class="meters-container">
+            <div class="meter">
+                <svg>
+                    <circle cx="50" cy="50" r="45"></circle>
+                    <circle id="diabetesMeter" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="meter-text">Diabetes<br><span id="diabetesPercent">0%</span></div>
+            </div>
+
+            <div class="meter">
+                <svg>
+                    <circle cx="50" cy="50" r="45"></circle>
+                    <circle id="heartMeter" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="meter-text">Heart<br><span id="heartPercent">0%</span></div>
+            </div>
+
+            <div class="meter">
+                <svg>
+                    <circle cx="50" cy="50" r="45"></circle>
+                    <circle id="kidneyMeter" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="meter-text">Kidney<br><span id="kidneyPercent">0%</span></div>
+            </div>
+
+            <div class="meter">
+                <svg>
+                    <circle cx="50" cy="50" r="45"></circle>
+                    <circle id="liverMeter" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="meter-text">Liver<br><span id="liverPercent">0%</span></div>
+            </div>
+
+            <div class="meter">
+                <svg>
+                    <circle cx="50" cy="50" r="45"></circle>
+                    <circle id="thyroidMeter" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div class="meter-text">Thyroid<br><span id="thyroidPercent">0%</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patient History Card -->
+    <div class="card history-card">
+        <h2>📂 Patient History</h2>
+        <ul id="patientHistory"></ul>
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
